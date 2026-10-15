@@ -1,0 +1,1026 @@
+:root {
+  color-scheme: light;
+  --ink: #17243c;
+  --muted: #61708a;
+  --line: #dce4f1;
+  --surface: #ffffff;
+  --surface-soft: #f5f8fd;
+  --blue: #2878ff;
+  --blue-dark: #145bd0;
+  --navy: #17243c;
+  --cyan: #42cfe8;
+  --gold: #f6b73c;
+  --red: #ee5a6f;
+  --green: #16a875;
+  --shadow: 0 22px 60px rgb(38 69 121 / 15%);
+  --shadow-soft: 0 10px 30px rgb(38 69 121 / 10%);
+  --radius: 22px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 5%, rgb(66 207 232 / 20%), transparent 28rem),
+    radial-gradient(circle at 88% 95%, rgb(40 120 255 / 14%), transparent 32rem),
+    #eef4fc;
+}
+
+body,
+.jspsych-display-element {
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.jspsych-display-element {
+  background: transparent;
+}
+
+.jspsych-content-wrapper,
+.jspsych-content {
+  width: 100%;
+  max-width: none;
+}
+
+.jspsych-btn {
+  min-width: 180px;
+  margin: 22px auto 0;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  font: 750 16px/1.2 inherit;
+  box-shadow: 0 10px 24px rgb(40 120 255 / 26%);
+  cursor: pointer;
+}
+
+.jspsych-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 13px 28px rgb(40 120 255 / 32%);
+}
+
+.message-shell,
+.passive-shell,
+.loading-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.task-message {
+  width: min(720px, 92vw);
+  margin-inline: auto;
+  padding: clamp(30px, 5vw, 54px);
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.task-message.compact-card,
+.completion-card {
+  text-align: center;
+}
+
+.task-message h1 {
+  max-width: 620px;
+  margin: 0 0 22px;
+  color: var(--navy);
+  font-size: clamp(30px, 4.5vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.task-message p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.task-message strong {
+  color: var(--ink);
+}
+
+.eyebrow,
+.task-message .eyebrow {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.space-prompt {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 52px;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e5;
+  border-bottom-width: 4px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font: 800 16px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  box-shadow: 0 5px 14px rgb(29 51 88 / 10%);
+}
+
+.inline-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px 8px 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.message-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 20px;
+  border-radius: 18px;
+  background: #e9f1ff;
+  color: var(--blue-dark);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.message-icon-success {
+  background: #e3f8f0;
+  color: var(--green);
+}
+
+.operant-shell {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+  padding: 22px clamp(18px, 3vw, 42px) 20px;
+  background:
+    radial-gradient(circle at 10% 0%, rgb(66 207 232 / 22%), transparent 30rem),
+    radial-gradient(circle at 95% 100%, rgb(40 120 255 / 16%), transparent 32rem),
+    #eef4fc;
+  color: var(--ink);
+  user-select: none;
+}
+
+.task-topbar {
+  width: min(1180px, 100%);
+  min-height: 70px;
+  margin: 0 auto 18px;
+  padding: 11px 14px 11px 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: var(--shadow-soft);
+}
+
+.task-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.brand-dot {
+  width: 13px;
+  height: 13px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 2px var(--cyan), 0 0 18px rgb(66 207 232 / 60%);
+}
+
+.phase-chip {
+  padding: 7px 14px;
+  border: 1px solid #d4e1f6;
+  border-radius: 999px;
+  background: #f4f8ff;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.points-chip {
+  justify-self: end;
+  min-width: 138px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  border-radius: 13px;
+  background: #fff8e5;
+  color: #946200;
+}
+
+.points-chip span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.points-chip strong {
+  color: #7d5200;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.operant-panel {
+  width: min(1180px, 100%);
+  min-height: min(690px, calc(100vh - 148px));
+  margin: 0 auto;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: var(--shadow);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.panel-heading h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.phase-progress {
+  width: 100%;
+  height: 7px;
+  margin: 26px 0 clamp(30px, 6vh, 64px);
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e8eef8;
+}
+
+.phase-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 1fr) minmax(170px, 0.7fr) minmax(210px, 1fr);
+  align-items: stretch;
+  gap: clamp(18px, 3vw, 38px);
+}
+
+.choice-card {
+  min-height: 340px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 2px solid #dce5f3;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff, #f7faff);
+  box-shadow: 0 12px 28px rgb(32 61 108 / 10%);
+  transition: transform 90ms ease, box-shadow 90ms ease, border-color 90ms ease;
+}
+
+.arcade-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.arcade-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(40 120 255 / 3%) 1px, transparent 1px),
+    linear-gradient(rgb(40 120 255 / 3%) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent);
+}
+
+.arcade-button {
+  position: relative;
+  width: 126px;
+  height: 102px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d9e3f2;
+  box-shadow: inset 0 -10px 0 rgb(23 36 60 / 12%), 0 13px 20px rgb(23 36 60 / 18%);
+}
+
+.arcade-button::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  box-shadow: inset 0 8px 14px rgb(255 255 255 / 34%), inset 0 -10px 14px rgb(23 36 60 / 18%);
+}
+
+.arcade-button-blue {
+  background: linear-gradient(180deg, #64dcf2, #2389e8);
+}
+
+.arcade-button-red {
+  background: linear-gradient(180deg, #ff8293, #df405b);
+}
+
+.choice-card kbd {
+  width: 96px;
+  height: 86px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 94%);
+  font-size: 44px;
+  box-shadow: inset 0 -7px 0 rgb(23 36 60 / 10%), 0 5px 10px rgb(23 36 60 / 20%);
+}
+
+.choice-caption,
+.choice-help {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coin-swatch {
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.coin-swatch-blue {
+  background: #e3f6ff;
+  box-shadow: 0 0 0 9px #f1fbff;
+}
+
+.coin-swatch-red {
+  background: #ffebef;
+  box-shadow: 0 0 0 9px #fff5f7;
+}
+
+.coin-swatch img {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+}
+
+.choice-q.is-pressed {
+  transform: translateY(4px) scale(0.985);
+  border-color: var(--cyan);
+  box-shadow: 0 7px 18px rgb(66 207 232 / 24%);
+}
+
+.choice-card.is-pressed .arcade-button {
+  transform: translateY(6px) scale(0.98);
+  box-shadow: inset 0 -4px 0 rgb(23 36 60 / 12%), 0 6px 10px rgb(23 36 60 / 16%);
+}
+
+.choice-p.is-pressed {
+  transform: translateY(4px) scale(0.985);
+  border-color: var(--red);
+  box-shadow: 0 7px 18px rgb(238 90 111 / 22%);
+}
+
+.reward-space {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.reward-space > p {
+  position: absolute;
+  bottom: 20px;
+  margin: 0;
+  color: #91a0b7;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+#operant-coin {
+  display: grid;
+  place-items: center;
+  animation: coin-pop 180ms ease-out both;
+}
+
+.reward-feedback {
+  margin-top: 12px;
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 900;
+  animation: coin-pop 180ms ease-out both;
+}
+
+.game-token {
+  position: relative;
+  isolation: isolate;
+  width: 76px;
+  height: 76px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid #ffd65c;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  box-shadow:
+    inset 0 0 0 4px rgb(255 255 255 / 28%),
+    inset 0 -8px 12px rgb(15 29 53 / 26%),
+    0 9px 16px rgb(27 55 99 / 20%);
+}
+
+.game-token::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+  border: 2px dashed rgb(255 255 255 / 52%);
+  border-radius: 50%;
+}
+
+.coin-value {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+.coin-value > span {
+  font-size: 34px;
+  text-shadow: 0 2px 2px rgb(0 0 0 / 18%);
+}
+
+.coin-value > small {
+  font-size: 18px;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.token-blue {
+  background: linear-gradient(145deg, #34cdeb, #1769df);
+}
+
+.token-red {
+  background: linear-gradient(145deg, #ff7188, #d52e4c);
+}
+
+.choice-token {
+  width: 66px;
+  height: 66px;
+}
+
+.choice-token .coin-value > span {
+  font-size: 29px;
+}
+
+.choice-token .coin-value > small {
+  font-size: 15px;
+}
+
+.instruction-token {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+  box-shadow: inset 0 0 0 3px rgb(255 255 255 / 25%), 0 5px 10px rgb(27 55 99 / 16%);
+}
+
+.instruction-token .coin-value > span {
+  font-size: 21px;
+}
+
+.instruction-token .coin-value > small {
+  font-size: 12px;
+}
+
+.earned-token {
+  width: 122px;
+  height: 122px;
+  border-width: 9px;
+}
+
+.earned-token .coin-value > span {
+  font-size: 54px;
+}
+
+.earned-token .coin-value > small {
+  font-size: 27px;
+}
+
+.task-footer {
+  width: min(1180px, 100%);
+  margin: 14px auto 0;
+  color: #66758d;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.passive-card {
+  width: min(520px, 90vw);
+  min-height: 360px;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 95%);
+  box-shadow: var(--shadow);
+}
+
+.passive-card > p {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.listening-pulse {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  box-shadow: 0 0 0 18px rgb(66 207 232 / 10%);
+}
+
+.listening-pulse::before,
+.listening-pulse::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 3px solid rgb(255 255 255 / 85%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.listening-pulse::before {
+  width: 28px;
+  height: 28px;
+}
+
+.listening-pulse::after {
+  width: 48px;
+  height: 48px;
+}
+
+.is-listening .listening-pulse {
+  animation: listening 750ms ease-out infinite;
+}
+
+.reward-card {
+  background: linear-gradient(180deg, #fff, #fff9e8);
+}
+
+.big-win-card {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, rgb(255 222 96 / 34%), transparent 15rem),
+    linear-gradient(180deg, #fff, #fff8dd);
+}
+
+.reward-card .reward-label {
+  margin: 0 0 18px;
+  color: #a87309;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.counterconditioning-coin {
+  width: min(220px, 38vw);
+  height: auto;
+  filter: drop-shadow(0 18px 24px rgb(164 109 0 / 24%));
+  animation: coin-pop 220ms ease-out both;
+}
+
+.reward-card .reward-points {
+  margin: 18px 0 0;
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.big-reward-burst {
+  position: relative;
+  width: 330px;
+  height: 245px;
+  margin: 0 auto;
+}
+
+/* Soft halo behind the bag. No border: a hard ring read as a stray circle
+   cutting across the bag. */
+.reward-glow {
+  position: absolute;
+  left: 50%;
+  top: 126px;
+  z-index: 1;
+  width: 320px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(255 214 92 / 34%), rgb(255 224 116 / 0%) 70%);
+  transform: translate(-50%, -50%);
+  animation: reward-glow 650ms ease-out both;
+}
+
+/* Transparent bag. Two layers: a back panel behind the coins and a glass
+   front over them, so the pile is seen through the bag. Coin positions and
+   cascade delays are inline styles computed from largeRewardCoins. */
+.reward-bag-back,
+.reward-bag-front {
+  position: absolute;
+  left: 50%;
+  top: 44px;
+  width: 248px;
+  height: 164px;
+  /* Bottom curve kept shallow so the widest row of the pile stays inside it. */
+  border-radius: 10px 10px 70px 70px / 8px 8px 56px 56px;
+  transform: translateX(-50%);
+}
+
+/* The mouth of the bag. Coins sit at a lower z-index, so they fall behind
+   this rim and visibly drop inside. */
+.reward-bag-front::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  right: -9px;
+  top: -10px;
+  height: 17px;
+  border: 1px solid rgb(190 129 4 / 32%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff7e0, #f2dda4);
+  box-shadow: 0 3px 7px rgb(164 109 0 / 16%);
+}
+
+.reward-bag-back {
+  z-index: 2;
+  border: 2px solid rgb(190 129 4 / 22%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 62%), rgb(255 240 194 / 58%));
+  box-shadow: inset 0 -14px 26px rgb(164 109 0 / 12%);
+}
+
+.reward-bag-front {
+  z-index: 6;
+  pointer-events: none;
+  border: 2px solid rgb(190 129 4 / 30%);
+  border-top-width: 3px;
+  background: linear-gradient(
+    170deg,
+    rgb(255 255 255 / 34%) 0%,
+    rgb(255 255 255 / 8%) 34%,
+    rgb(255 236 176 / 14%) 100%
+  );
+  box-shadow: inset 0 10px 18px rgb(255 255 255 / 46%);
+}
+
+.cluster-token {
+  position: absolute;
+  z-index: 4;
+  width: 46px;
+  height: 46px;
+  opacity: 0;
+  rotate: var(--tilt, 0deg);
+  animation: coin-cascade 320ms cubic-bezier(.34, .62, .3, 1.22) forwards;
+}
+
+.cluster-token .game-token {
+  width: 46px;
+  height: 46px;
+  border-width: 4px;
+  box-shadow:
+    inset 0 0 0 2px rgb(255 255 255 / 30%),
+    inset 0 -5px 8px rgb(15 29 53 / 24%),
+    0 5px 9px rgb(27 55 99 / 22%);
+}
+
+.cluster-token .coin-value > span {
+  font-size: 19px;
+}
+
+.cluster-token .coin-value > small {
+  font-size: 11px;
+}
+
+.cluster-token .game-token::before {
+  inset: 3px;
+  border-width: 1px;
+}
+
+.reward-total {
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  z-index: 7;
+  min-width: 176px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid rgb(190 129 4 / 18%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 92%);
+  color: #7d5200;
+  box-shadow: 0 8px 22px rgb(164 109 0 / 16%);
+  transform: translateX(-50%);
+  /* Must not animate `transform`: coin-pop would overwrite the -50% centring.
+     The individual `translate`/`scale` properties compose with it instead. */
+  animation: reward-total-pop 220ms 150ms ease-out both;
+}
+
+.reward-total strong {
+  font-size: 18px;
+}
+
+.reward-total span {
+  color: var(--green);
+  font-size: 21px;
+  font-weight: 950;
+}
+
+.pause-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: rgb(23 36 60 / 72%);
+  backdrop-filter: blur(8px);
+}
+
+.pause-overlay > div {
+  min-width: 300px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.pause-overlay strong {
+  font-size: 24px;
+}
+
+.pause-overlay span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.loading-shell {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border: 4px solid #dce6f5;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes coin-pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.82); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cluster-pop {
+  from { opacity: 0; scale: 0.55; translate: 0 15px; }
+  to { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+/* Coins drop into the bag and settle. The final keyframe is the resting
+   state, so under prefers-reduced-motion (duration forced to 1 ms) the pile
+   simply appears complete rather than staying invisible. */
+@keyframes reward-total-pop {
+  from { opacity: 0; translate: 0 10px; scale: 0.82; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+
+@keyframes coin-cascade {
+  0% { opacity: 0; translate: 0 -104px; scale: 0.86; }
+  62% { opacity: 1; translate: 0 4px; scale: 1.04; }
+  100% { opacity: 1; translate: 0 0; scale: 1; }
+}
+
+@keyframes reward-glow {
+  from { opacity: 0; scale: 0.45; }
+  to { opacity: 1; scale: 1; }
+}
+
+@keyframes listening {
+  0%, 100% { box-shadow: 0 0 0 12px rgb(66 207 232 / 9%); }
+  50% { box-shadow: 0 0 0 28px rgb(66 207 232 / 16%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 760px), (max-height: 700px) {
+  .operant-shell {
+    padding: 12px;
+  }
+
+  .task-topbar {
+    min-height: 58px;
+    margin-bottom: 10px;
+  }
+
+  .phase-chip {
+    display: none;
+  }
+
+  .task-topbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .operant-panel {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .phase-progress {
+    margin: 16px 0 20px;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr 110px 1fr;
+    gap: 10px;
+  }
+
+  .choice-card,
+  .reward-space {
+    min-height: 250px;
+  }
+
+  .choice-card {
+    padding: 13px;
+  }
+
+  .choice-card kbd {
+    width: 70px;
+    height: 64px;
+    font-size: 34px;
+  }
+
+  .arcade-button {
+    width: 94px;
+    height: 78px;
+  }
+
+  .coin-swatch {
+    width: 62px;
+    height: 62px;
+  }
+
+  .coin-swatch img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .panel-heading h1 {
+    font-size: 23px;
+  }
+
+  .task-footer {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Developer-mode banner. Present in short, quick and smoke modes only, never
+   in a full run, so a shortened session is always identifiable on screen. */
+.dev-banner {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 9999;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 176, 32, 0.55);
+  background: rgba(60, 40, 0, 0.86);
+  color: #ffcd66;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Empty-bag outcome after white noise. Same bag, same position, same
+   duration as the reward, but no coins and a deliberately muted label so it
+   cannot read as a win. */
+.empty-outcome-card {
+  background: linear-gradient(180deg, #fff, #f4f6fa);
+}
+
+.empty-outcome-card .reward-label {
+  color: #7c8798;
+}
+
+.big-reward-burst.is-empty .reward-bag-back {
+  border-color: rgb(124 135 152 / 26%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 62%), rgb(232 236 243 / 62%));
+  box-shadow: inset 0 -14px 26px rgb(70 84 105 / 10%);
+}
+
+.big-reward-burst.is-empty .reward-bag-front {
+  border-color: rgb(124 135 152 / 32%);
+  background: linear-gradient(
+    170deg,
+    rgb(255 255 255 / 34%) 0%,
+    rgb(255 255 255 / 8%) 34%,
+    rgb(226 231 239 / 16%) 100%
+  );
+}
+
+.big-reward-burst.is-empty .reward-bag-front::before {
+  border-color: rgb(124 135 152 / 34%);
+  background: linear-gradient(180deg, #fbfcfe, #dfe4ec);
+  box-shadow: 0 3px 7px rgb(70 84 105 / 12%);
+}
+
+.reward-total.is-empty {
+  border-color: rgb(124 135 152 / 20%);
+  color: #6b7686;
+  box-shadow: 0 8px 22px rgb(70 84 105 / 10%);
+}
+
+.reward-total.is-empty span {
+  color: #8a94a3;
+}
